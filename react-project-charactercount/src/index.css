@@ -1,0 +1,137 @@
+/* App.css */
+
+/* 1. Animated Background for the whole page */
+:root {
+  --primary-gradient: linear-gradient(
+    45deg,
+    #47cab4,
+    #dbf653,
+    #007bff,
+    #f8e3b9,
+    rgb(153, 250, 107)
+  );
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Animate the gradient background */
+  background: var(--primary-gradient);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. Glassmorphism Container */
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); /* Frosty glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  max-width: 850px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #007bff, #47cab4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+}
+
+/* 3. Glowing Textarea */
+.text-area {
+  width: 100%;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+}
+
+.text-area:focus {
+  border-color: #47cab4;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(71, 202, 180, 0.2);
+}
+
+/* 4. The 4x3 Centered Grid */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* 5. Animated Stat Cards */
+.stat-item {
+  flex: 0 1 calc(23%);
+  min-width: 160px;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 16px;
+  border-bottom: 4px solid #47cab4;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-item:hover {
+  transform: scale(1.08);
+  background: #fff;
+  border-bottom: 4px solid #007bff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item strong {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Specific highlight for the Total */
+.stat-item:last-child {
+  border-bottom-color: #ffc107;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .stat-item {
+    flex: 0 1 calc(45%);
+  }
+}
